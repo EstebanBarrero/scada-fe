@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #050A14;
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: #050A14;
+    color: #e2e8f0;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Criticality badges — glass style */
+  .badge-critical {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border tracking-wide
+           bg-rose-500/15 text-rose-400 border-rose-500/30;
+    box-shadow: 0 0 8px rgba(244, 63, 94, 0.2);
+  }
+  .badge-high {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border tracking-wide
+           bg-orange-500/15 text-orange-400 border-orange-500/30;
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.2);
+  }
+  .badge-medium {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border tracking-wide
+           bg-amber-500/15 text-amber-400 border-amber-500/30;
+  }
+  .badge-low {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border tracking-wide
+           bg-emerald-500/15 text-emerald-400 border-emerald-500/30;
+  }
+  .badge-unknown {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border tracking-wide
+           bg-slate-500/15 text-slate-400 border-slate-500/30;
+  }
+
+  /* Pagination buttons */
+  .btn-page {
+    @apply bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.07] text-slate-400 hover:text-slate-200
+           px-3 py-1.5 rounded-lg text-sm transition-all duration-200
+           disabled:opacity-30 disabled:cursor-not-allowed backdrop-blur-sm;
+  }
+
+  /* Glass input override */
+  .glass-input {
+    @apply w-full bg-white/[0.05] border border-white/[0.08] text-slate-200 rounded-xl
+           px-3 py-2 text-sm focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07]
+           placeholder-slate-500 transition-all duration-200;
+  }
+
+  /* Native datetime-local input override to match dark glass theme */
+  input[type="datetime-local"] {
+    @apply bg-white/[0.05] border border-white/[0.08] text-slate-200 rounded-xl
+           px-3 py-2 text-sm focus:outline-none focus:border-blue-500/50 w-full
+           dark:[color-scheme:dark] transition-all duration-200;
+  }
+
+  /* Tremor overrides for glass aesthetic */
+  .tremor-Card-root {
+    @apply !bg-white/[0.03] !border-white/[0.07] !shadow-glass !rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.07] rounded-2xl shadow-glass;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+}
